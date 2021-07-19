@@ -1,0 +1,26 @@
+{
+  "name": "team-generator",
+  "version": "1.0.0",
+  "description": "Makes a small db of team members",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techx-guy/Team-generator.git"
+  },
+  "author": "techx-guy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/techx-guy/Team-generator/issues"
+  },
+  "homepage": "https://github.com/techx-guy/Team-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
+}
