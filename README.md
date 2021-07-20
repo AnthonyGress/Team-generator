@@ -36,7 +36,7 @@
   npm start
   ```
 
-  Answer all of the prompts and then a README file will be written into the same directory using the answers you provided.
+  Answer all of the prompts and then 2 files will be written into the dist directory. Creating a webpage using the information you provided.
   
   ## Tests
 
