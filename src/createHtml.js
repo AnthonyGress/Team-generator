@@ -3,13 +3,13 @@ const path = require("path");
 let cardArr = [];
 let cardFill = "";
 
+// create a new card
 class Card {
   constructor(content) {
     this.content = content;
   }
 }
-
-
+// determine the role specific data title and value
 const getSpec = (e) => {
   let specTitle, specVal;
   if (e.getRole() == "Manager") {
@@ -33,12 +33,12 @@ const getSpec = (e) => {
    };
   return spec;
 };
-
+// take data from user for all employees and make bootstrap cards for each one
 const createCards = (emp) => {
   console.log("creating cards");
   console.log(emp);
   emp.forEach((e) => {
-    // create a card for each person and add it to the section
+    // create a card for each person
     let card = `<div class="col">
         <div class="card" style="width: 18rem">
           <div class="card-header bg-success">
@@ -66,13 +66,16 @@ const createCards = (emp) => {
           </div>
         </div>
       </div> `;
+      // use constructor and add the data to the array
     cardArr.push(new Card(card));
   });
+  // loop over array and grab just the html text
   cardArr.forEach((e) => (cardFill += e.content));
+  // pass html text only to createHtml
   createHtml(cardFill);
   // write to file using array
 };
-
+// shell of html without any data
 const createHtml = (data) => {
   let content = `<!DOCTYPE html>
 <html lang="en">
@@ -104,10 +107,11 @@ const createHtml = (data) => {
 </html>
 
   `;
+  // append to html file
   writeToFile("index.html", content);
 };
 
-// TODO export html and css files (use bootstrap) using path and fs
+// export html and css files (use bootstrap) using path and fs
 const writeToFile = (fileName, content) => {
   console.log("Writing team to file");
   // TODO change file path
