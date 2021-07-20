@@ -2,7 +2,7 @@ const Employee = require('../lib/Employee');
 
 describe("New Employee Instance", () => {
   const e = new Employee("name", 1, "email@email.com");
-  
+
   it("should be a typeof object", () => {
     expect(typeof(e)).toBe('object');
   })
