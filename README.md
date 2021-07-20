@@ -26,7 +26,7 @@
   ```
 
   ## Usage
-  <iframe  title="YouTube video player" width="480" height="390" src="http://www.youtube.com/watch?v=YJb3HGMzTOA?autoplay=0" frameborder="0" allowfullscreen></iframe>
+[![youtube video with a picture of the generated website](https://img.youtube.com/vi/YJb3HGMzTOA)/0.jpg)](https://www.youtube.com/watch?v=YJb3HGMzTOA)
 
   [Video Walkthrough](https://youtu.be/YJb3HGMzTOA)
 
