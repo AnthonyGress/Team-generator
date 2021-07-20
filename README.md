@@ -26,6 +26,9 @@
   ```
 
   ## Usage
+  [!<img width="860" alt="Youtube screenshot" src="https://user-images.githubusercontent.com/70029654/126336188-0c80ae77-bad6-403b-b59a-f1e2569aa8c1.png">](https://youtu.be/YJb3HGMzTOA)
+
+[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
 
   [Video Walkthrough](https://youtu.be/YJb3HGMzTOA)
 
