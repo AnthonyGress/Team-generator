@@ -3,14 +3,38 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const createCards = require('./src/createHtml');
-// require packages
-
 const inquirer = require('inquirer');
 let employees = [];
 // Start the program by asking for manager info
-init = () => {
-console.log("Welcome to the Team Builder!\n");
-getInput(managerQs);
+const init = () => {
+  console.log("Welcome to the Team Builder!\n");
+  getInput(managerQs);
+}
+
+// Asks the user questions to build the team
+const getInput = (empQs) => {
+  inquirer
+    .prompt(empQs)
+    .then((answers) => {
+      let e = answers;
+      if (empQs[0].message.includes("Engineer")){
+        // create new engineer obj
+        employees.push(new Engineer(e.name, e.id, e.email, e.github));
+        menu();
+      }
+      else if (empQs[0].message.includes("Manager")) {
+        // create new manager obj
+        employees.push(new Manager(e.name, e.id, e.email, e.office));
+        menu();
+      } else {
+        // create new intern
+        employees.push(new Intern(e.name, e.id, e.email, e.school));
+        menu();
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 // Menu asks the user if they want to add another employee or build the site
 menu = () => {
@@ -18,6 +42,7 @@ menu = () => {
   inquirer
   .prompt(menuQs)
   .then((answers) => {
+  // search the response string and determine which question set to show the user based on their choice
   if (answers.menu == 'Add an Engineer') {
     getInput(engineerQs);
   }
@@ -25,8 +50,8 @@ menu = () => {
     getInput(internQs);
   }
   else {
-    createCards(employees);
     // build / sort / write files
+    createCards(employees);
   }
   })
   .catch((error) => {
@@ -131,31 +156,5 @@ const internQs = [
   },
 ];
 
-// Asks the user questions to build the team
-getInput = (empQs) => {
-  inquirer
-    .prompt(empQs)
-    .then((answers) => {
-      let e = answers;
-      if (empQs[0].message.includes("Engineer")){
-        // create new engineer obj
-        employees.push(new Engineer(e.name, e.id, e.email, e.github));
-        menu();
-      }
-      else if (empQs[0].message.includes("Manager")) {
-        // create new engineer obj
-        employees.push(new Manager(e.name, e.id, e.email, e.office));
-        menu();
-      } else {
-        // create new intern
-        // create new engineer obj
-        employees.push(new Intern(e.name, e.id, e.email, e.school));
-        menu();
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
 // starts the program
 init();

@@ -20,7 +20,7 @@ const getSpec = (e) => {
   } 
   else if (e.getRole() == "Engineer") {
     specTitle = "GitHub";
-    specVal = e.github;
+    specVal = `<a href="https://github.com/${e.github}" target="_blank">${e.github}</a>`;
     iconA = '<i class="bi bi-rulers"></i>';
     iconB = '<i class="bi bi-github"></i>';
   } 
