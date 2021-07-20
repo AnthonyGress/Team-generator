@@ -26,7 +26,6 @@
   ```
 
   ## Usage
-[![youtube video with a picture of the generated website](https://img.youtube.com/vi/YJb3HGMzTOA)/0.jpg)](https://www.youtube.com/watch?v=YJb3HGMzTOA)
 
   [Video Walkthrough](https://youtu.be/YJb3HGMzTOA)
 
