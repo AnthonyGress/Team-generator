@@ -10,11 +10,12 @@ const inquirer = require('inquirer');
 let employees = [];
 // Start the program by asking for manager info
 init = () => {
+console.log("Welcome to the Team Builder!\n");
 getInput(managerQs);
 }
 // Menu asks the user if they want to add another employee or build the site
 menu = () => {
-  console.log("Welcome to the Team Builder!");
+  console.log("\n")
   inquirer
   .prompt(menuQs)
   .then((answers) => {
@@ -25,7 +26,6 @@ menu = () => {
     getInput(internQs);
   }
   else {
-    console.log("Building the team site");
     createCards(employees);
     // build / sort / write files
   }
@@ -131,28 +131,23 @@ const internQs = [
 
 // Asks the user questions to build the team
 getInput = (empQs) => {
-console.log("getting qs");
   inquirer
     .prompt(empQs)
     .then((answers) => {
       let e = answers;
-      console.log(empQs[0].message);
       if (empQs[0].message.includes("Engineer")){
         // create new engineer obj
         employees.push(new Engineer(e.name, e.id, e.email, e.github));
-        console.log(employees);
         menu();
       }
       else if (empQs[0].message.includes("Manager")) {
         // create new engineer obj
         employees.push(new Manager(e.name, e.id, e.email, e.office));
-        console.log(employees);
         menu();
       } else {
         // create new intern
         // create new engineer obj
         employees.push(new Intern(e.name, e.id, e.email, e.school));
-        console.log(employees);
         menu();
       }
     })

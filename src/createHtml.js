@@ -13,17 +13,14 @@ class Card {
 const getSpec = (e) => {
   let specTitle, specVal;
   if (e.getRole() == "Manager") {
-    console.log('setting spec to manager');
     specTitle = "Office Number";
     specVal = e.officeNumber;
   } 
   else if (e.getRole() == "Engineer") {
-    console.log("setting spec to engineer");
     specTitle = "GitHub";
     specVal = e.github;
   } 
   else {
-    console.log("setting spec to intern");
     specTitle = "School";
     specVal = e.school;
   }
@@ -35,8 +32,7 @@ const getSpec = (e) => {
 };
 // take data from user for all employees and make bootstrap cards for each one
 const createCards = (emp) => {
-  console.log("creating cards");
-  console.log(emp);
+  console.log("Creating Employee Cards");
   emp.forEach((e) => {
     // create a card for each person
     let card = `<div class="col">
@@ -113,9 +109,10 @@ const createHtml = (data) => {
 
 // export html and css files (use bootstrap) using path and fs
 const writeToFile = (fileName, content) => {
-  console.log("Writing team to file");
+  console.log("Writing Team to File");
   // TODO change file path
   fs.writeFileSync(path.join(process.cwd(),'/dist/', fileName), content);
+  console.log("File written to " + path.join(process.cwd(), "/dist/", fileName));
 };
 
 module.exports = createCards;
