@@ -1,7 +1,7 @@
   # Team Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Screenshot
-
+<img width="1280" alt="Team generator website screenshot" src="https://user-images.githubusercontent.com/70029654/126261200-e65e0cae-14d2-403b-8ac8-2255a2b54fca.png">
 
   ## Description
 
