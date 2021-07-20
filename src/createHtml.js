@@ -12,24 +12,25 @@ class Card {
 
 const getSpec = (e) => {
   let specTitle, specVal;
-  console.log(e);
-  let spec = {
-    title: specTitle,
-    value: specVal,
-  };
-  console.log(e.getRole());
   if (e.getRole() == "Manager") {
+    console.log('setting spec to manager');
     specTitle = "Office Number";
-    specVal = e.office;
+    specVal = e.officeNumber;
   } 
   else if (e.getRole() == "Engineer") {
+    console.log("setting spec to engineer");
     specTitle = "GitHub";
     specVal = e.github;
   } 
   else {
+    console.log("setting spec to intern");
     specTitle = "School";
     specVal = e.school;
   }
+   let spec = {
+     title: specTitle,
+     value: specVal,
+   };
   return spec;
 };
 
@@ -54,7 +55,7 @@ const createCards = (emp) => {
                 </tr>
                 <tr>
                   <th scope="col">Email</th>
-                  <td>${e.email}</td>
+                  <td><a href="mailto:${e.email}">${e.email}</a></td>
                 </tr>
                 <tr>
                   <th scope="col">${getSpec(e).title}</th>
