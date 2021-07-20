@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const createCss = require("./createCss");
 let cardArr = [];
 let cardFill = "";
-
 // create a new card
 class Card {
   constructor(content) {
@@ -11,50 +11,60 @@ class Card {
 }
 // determine the role specific data title and value
 const getSpec = (e) => {
-  let specTitle, specVal;
+  let specTitle, specVal, iconA, iconB;
   if (e.getRole() == "Manager") {
-    specTitle = "Office Number";
+    specTitle = "Office";
     specVal = e.officeNumber;
+    iconA = '<i class="bi bi-kanban-fill"></i>';
+    iconB = '<i class="bi bi-telephone-fill"></i>';
   } 
   else if (e.getRole() == "Engineer") {
     specTitle = "GitHub";
     specVal = e.github;
+    iconA = '<i class="bi bi-rulers"></i>';
+    iconB = '<i class="bi bi-github"></i>';
   } 
   else {
     specTitle = "School";
     specVal = e.school;
+    iconA = '<i class="bi bi-eyeglasses"></i>';
+    iconB = '<i class="bi bi-book-fill"></i>';
   }
    let spec = {
      title: specTitle,
      value: specVal,
+     iconA: iconA,
+     iconB: iconB
    };
   return spec;
 };
 // take data from user for all employees and make bootstrap cards for each one
 const createCards = (emp) => {
-  console.log("Creating Employee Cards");
+  console.log("\nCreating Employee Cards");
   emp.forEach((e) => {
     // create a card for each person
-    let card = `<div class="col">
-        <div class="card" style="width: 18rem">
+    let card = `<div class="col mt-4 d-flex justify-content-center">
+        <div class="card h-100" style="width: 19rem">
           <div class="card-header bg-success">
-            <h5 class="card-title text-light">${e.name}</h5>
-            <h6 class="card-subtitle mb-2 text-light">${e.getRole()}</h6>
+            <h5 class="card-title">${e.name}</h5>
+            <h6 class="card-subtitle mb-2">${
+              getSpec(e).iconA
+            } ${e.getRole()}</h6>
           </div>
-          <div class="card-body">
+          <div class="card-body d-flex align-items-center">
 
             <p class="card-text">
               <table class="table table-striped table-bordered">
                 <tr>
-                  <th scope="col">ID</th>
+                  <th scope="col"><i class="bi bi-person-badge-fill"></i> ID</th>
                   <td>${e.id}</td>
                 </tr>
                 <tr>
-                  <th scope="col">Email</th>
+                  <th scope="col"><i class="bi bi-envelope-fill"></i> Email</th>
                   <td><a href="mailto:${e.email}">${e.email}</a></td>
                 </tr>
                 <tr>
-                  <th scope="col">${getSpec(e).title}</th>
+                  <th scope="col">${getSpec(e).iconB} ${getSpec(e).title}</th>
                   <td>${getSpec(e).value}</td>
                 </tr>
               </table>
@@ -89,30 +99,34 @@ const createHtml = (data) => {
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>My Team</title>
   </head>
   <body>
-    <header class="jumbotron bg-success p-3"><h1 class="text-center text-light">My Team</h1></header>
-    <main class="container">
+    <header class="jumbotron bg-success p-3"><h1 class="text-center">My Team</h1></header>
+    <main class="container main-wrapper">
       <div class="row">
       ${data}
       </div>
     </main>
+  <footer class="bg-success text-center py-4 h5">Built by Anthony</footer>
   </body>
 </html>
 
   `;
   // append to html file
   writeToFile("index.html", content);
+  writeToFile("style.css", createCss.styling());
 };
+
+
 
 // export html and css files (use bootstrap) using path and fs
 const writeToFile = (fileName, content) => {
-  console.log("Writing Team to File");
+  console.log("\nAdding the bells and whistles");
   // TODO change file path
   fs.writeFileSync(path.join(process.cwd(),'/dist/', fileName), content);
-  console.log("File written to " + path.join(process.cwd(), "/dist/", fileName));
+  console.log("\nFile written to " + path.join(process.cwd(), "/dist/", fileName) + "\n");
 };
 
 module.exports = createCards;

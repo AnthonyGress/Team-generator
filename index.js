@@ -49,83 +49,86 @@ const menuQs = [
 
 const managerQs = [
   {
-    type: 'input',
-    name: 'name',
-    message: "What is the Manager's name?"
-  },  
-  {
-    type: 'input',
-    name: 'id',
-    message: "What is the Manager's ID #?"
-
-  },  
-  {
-    type: 'input',
-    name: 'email',
-    message: "What is the Manager's email address?"
+    type: "input",
+    name: "name",
+    message: "What is the Manager's name?",
+    default: "Manager 1",
   },
   {
-    type: 'input',
-    name: 'office',
-    message: "What is the Manager's offices' phone number?"
-
-  }
+    type: "input",
+    name: "id",
+    message: "What is the Manager's ID #?",
+    default: "1",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is the Manager's email address?",
+    default: "manager1@email.com",
+  },
+  {
+    type: "input",
+    name: "office",
+    message: "What is the Manager's offices' phone number?",
+    default: "555-123-1234",
+  },
 ];
 
 const engineerQs = [
   {
-    type: 'input',
-    name: 'name',
-    message: "What is the Engineer's name?"
-
-  },  
-
-  {
-    type: 'input',
-    name: 'id',
-    message: "What is the Engineer's ID #?"
-
-  },  
-
-  {
-    type: 'input',
-    name: 'email',
-    message: "What is the Engineer's email address?"
-
+    type: "input",
+    name: "name",
+    message: "What is the Engineer's name?",
+    default: "Engineer 1",
   },
 
   {
-    type: 'input',
-    name: 'github',
-    message: "What is the Engineer's GitHub username?"
+    type: "input",
+    name: "id",
+    message: "What is the Engineer's ID #?",
+    default: "2",
+  },
 
-  }
+  {
+    type: "input",
+    name: "email",
+    message: "What is the Engineer's email address?",
+    default: "engineer1@email.com",
+  },
+
+  {
+    type: "input",
+    name: "github",
+    message: "What is the Engineer's GitHub username?",
+    default: "engineer1",
+  },
 ];
 
 const internQs = [
   {
-    type: 'input',
-    name: 'name',
-    message: "What is the Intern's name?"
-  },  
-  {
-    type: 'input',
-    name: 'id',
-    message: "What is the Intern's ID #?"
-
-  },  
-  {
-    type: 'input',
-    name: 'email',
-    message: "What is the Intern's email address?"
-
+    type: "input",
+    name: "name",
+    message: "What is the Intern's name?",
+    default: "Intern 1",
   },
   {
-    type: 'input',
-    name: 'school',
-    message: "What school is the Intern from?"
-
-  }
+    type: "input",
+    name: "id",
+    message: "What is the Intern's ID #?",
+    default: "3",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is the Intern's email address?",
+    default: "intern@email.com",
+  },
+  {
+    type: "input",
+    name: "school",
+    message: "What school is the Intern from?",
+    default: "UCF",
+  },
 ];
 
 // Asks the user questions to build the team
