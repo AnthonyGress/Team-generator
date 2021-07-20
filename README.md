@@ -26,8 +26,9 @@
   ```
 
   ## Usage
+  <iframe  title="YouTube video player" width="480" height="390" src="http://www.youtube.com/watch?v=YJb3HGMzTOA?autoplay=0" frameborder="0" allowfullscreen></iframe>
 
-  [Video Walkthrough](tbd)
+  [Video Walkthrough](https://youtu.be/YJb3HGMzTOA)
 
   To use this node app, clone the repo down, use the terminal to cd into the root directory. Then run:
   
